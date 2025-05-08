@@ -15,4 +15,7 @@ public class UserService {
     public boolean updateUser(User user){
         return userMapper.updateUser(user);
     }
+    public boolean deleteUser(Long id){
+        return userMapper.deleteUserById(id);
+    }
 }

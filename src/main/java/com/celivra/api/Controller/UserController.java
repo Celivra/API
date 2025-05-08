@@ -24,4 +24,11 @@ public class UserController {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("更新失败");
     }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable("id") Long id){
+        if(userService.deleteUser(id)){
+            return ResponseEntity.ok("删除成功");
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("删除失败");
+    }
 }
