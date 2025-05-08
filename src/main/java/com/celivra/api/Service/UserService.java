@@ -12,6 +12,9 @@ public class UserService {
     public User getUser(Long id){
         return  userMapper.getUserById(id);
     }
+    public boolean addUser(User user){
+        return userMapper.insertUser(user);
+    }
     public boolean updateUser(User user){
         return userMapper.updateUser(user);
     }

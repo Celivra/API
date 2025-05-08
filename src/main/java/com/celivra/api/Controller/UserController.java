@@ -17,6 +17,13 @@ public class UserController {
         System.out.println(id);
         return userService.getUser(id).toString();
     }
+    @PostMapping("/add")
+    public ResponseEntity<String> addUser(@RequestBody User user){
+        if(userService.addUser(user)){
+            return ResponseEntity.ok("添加成功");
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("添加失败");
+    }
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updateUser(@PathVariable("id") @RequestBody User user){
         if(userService.updateUser(user)){
