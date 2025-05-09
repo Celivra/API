@@ -7,22 +7,25 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/user")
 public class UserController {
     @Autowired
     UserService userService;
+    @PostMapping("/add")
+    public String addUser(@RequestBody User user) {
+        if(userService.addUser(user)){
+            return "添加成功";
+        }
+        return "添加失败";
+    }
     @GetMapping("/{id}")
     public String getUser(@PathVariable("id") Long id){
         System.out.println(id);
         return userService.getUser(id).toString();
-    }
-    @PostMapping("/add")
-    public ResponseEntity<String> addUser(@RequestBody User user){
-        if(userService.addUser(user)){
-            return ResponseEntity.ok("添加成功");
-        }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("添加失败");
     }
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updateUser(@PathVariable("id") @RequestBody User user){
@@ -38,4 +41,9 @@ public class UserController {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("删除失败");
     }
+    @GetMapping("/all")
+    public ResponseEntity<List<User>> getAllUser(){
+        return ResponseEntity.ok(userService.getAllUser());
+    }
+
 }

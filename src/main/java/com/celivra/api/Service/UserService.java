@@ -5,6 +5,8 @@ import com.celivra.api.Mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -20,5 +22,8 @@ public class UserService {
     }
     public boolean deleteUser(Long id){
         return userMapper.deleteUserById(id);
+    }
+    public List<User> getAllUser(){
+        return userMapper.getAllUser();
     }
 }
