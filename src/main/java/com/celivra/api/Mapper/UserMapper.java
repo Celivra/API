@@ -17,5 +17,6 @@ public interface UserMapper {
     boolean updateUser(User user);
     @Delete("delete from users where id = #{id}")
     boolean deleteUserById(Long id);
+    @Select("select * from users")
     List<User> getAllUser();
 }

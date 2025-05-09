@@ -22,7 +22,7 @@ public class UserController {
         }
         return "添加失败";
     }
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public String getUser(@PathVariable("id") Long id){
         System.out.println(id);
         return userService.getUser(id).toString();
