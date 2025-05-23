@@ -10,10 +10,12 @@ import java.util.List;
 public interface UserMapper {
     @Select("select * from users where id = #{id}")
     User getUserById(Long id);
-    @Insert("insert into users(username, email, phone) values(#{username}, #{email}, #{phone})")
+    @Select("select * from users where username = #{username}")
+    User getUserByName(String username);
+    @Insert("insert into users(username, password, email, phone) values(#{username}, #{password} ,#{email}, #{phone})")
     boolean insertUser(User user);
     @Update("update users set username = #{username}," +
-            "email = #{email}, phone = #{phone}")
+            "password = #{password}, email = #{email}, phone = #{phone}")
     boolean updateUser(User user);
     @Delete("delete from users where id = #{id}")
     boolean deleteUserById(Long id);

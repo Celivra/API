@@ -11,8 +11,11 @@ import java.util.List;
 public class UserService {
     @Autowired
     UserMapper userMapper;
-    public User getUser(Long id){
+    public User getUserById(Long id){
         return  userMapper.getUserById(id);
+    }
+    public User getUserByName(String username){
+        return  userMapper.getUserByName(username);
     }
     public boolean addUser(User user){
         return userMapper.insertUser(user);

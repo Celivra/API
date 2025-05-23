@@ -19,11 +19,15 @@ public class UserController {
     public LoginResponse login(@RequestBody LoginRequest loginRequest) {
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
-        if(username.equals("admin") && password.equals("123456")) {
-            return new LoginResponse(true, "success");
+        User check = userService.getUserByName(username);
+        if(check == null){
+            return new LoginResponse(false, "User not found");
+        }
+        if(password.equals(check.getPassword())) {
+            return new LoginResponse(true, "Login Success");
         }
         else {
-            return new LoginResponse(false, "falied");
+            return new LoginResponse(false, "Password incorrect");
         }
 
     }
