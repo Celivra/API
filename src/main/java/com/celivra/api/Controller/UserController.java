@@ -5,7 +5,6 @@ import com.celivra.api.Dto.LoginResponse;
 import com.celivra.api.Entity.User;
 import com.celivra.api.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
@@ -19,15 +18,15 @@ public class UserController {
     public LoginResponse login(@RequestBody LoginRequest loginRequest) {
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
-        User check = userService.getUserByName(username);
-        if(check == null){
-            return new LoginResponse(false, "User not found");
+        User user = userService.getUserByName(username);
+        if(user == null){
+            return new LoginResponse(false, "User not found", null);
         }
-        if(password.equals(check.getPassword())) {
-            return new LoginResponse(true, "Login Success");
+        if(password.equals(user.getPassword())) {
+            return new LoginResponse(true, "Login Success", user);
         }
         else {
-            return new LoginResponse(false, "Password incorrect");
+            return new LoginResponse(false, "Password incorrect", user);
         }
 
     }
