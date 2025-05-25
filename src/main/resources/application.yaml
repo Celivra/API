@@ -9,6 +9,19 @@ spring:
     url: jdbc:mysql://localhost:3306/spring
     username: root
     password: 940727
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 52xiaozhai@gmail.com
+    password: vcio mmnk jfeu sdhd # 使用刚才生成的16位应用专用密码
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.ssl.trust: smtp.gmail.com
+  data:
+    redis:
+      host: localhost
+      port: 6379
 
 mybatis:
   configuration:

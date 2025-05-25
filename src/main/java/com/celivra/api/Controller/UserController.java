@@ -13,7 +13,7 @@ import javax.swing.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("api/")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     UserService userService;
