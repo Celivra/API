@@ -12,6 +12,8 @@ public interface UserMapper {
     User getUserById(Long id);
     @Select("select * from users where username = #{username}")
     User getUserByName(String username);
+    @Select("select * from users where email = #{email}")
+    User getUserByEmail(String email);
     @Insert("insert into users(username, password, email, phone) values(#{username}, #{password} ,#{email}, #{phone})")
     boolean insertUser(User user);
     @Update("update users set username = #{username}," +

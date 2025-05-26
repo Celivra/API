@@ -17,6 +17,9 @@ public class UserService {
     public User getUserByName(String username){
         return  userMapper.getUserByName(username);
     }
+    public User getUserByEmail(String email){
+        return  userMapper.getUserByEmail(email);
+    }
     public boolean addUser(User user){
         return userMapper.insertUser(user);
     }
