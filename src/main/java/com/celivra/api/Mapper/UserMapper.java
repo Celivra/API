@@ -2,7 +2,6 @@ package com.celivra.api.Mapper;
 
 import com.celivra.api.Entity.User;
 import org.apache.ibatis.annotations.*;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
