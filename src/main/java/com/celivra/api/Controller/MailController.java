@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/mail")
+@RequestMapping("api/mail")
 public class MailController {
 
     @Autowired
