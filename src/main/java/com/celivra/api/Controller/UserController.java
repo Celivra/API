@@ -67,4 +67,12 @@ public class UserController {
             return new RegisterResponse(false, "注册失败，用户可能已存在");
         }
     }
+    @PostMapping("/{id}")
+    public User login(@PathVariable("id") Long id) {
+        User user = userService.getUserById(id);
+        if(user == null){
+            return null;
+        }
+        return user;
+    }
 }
