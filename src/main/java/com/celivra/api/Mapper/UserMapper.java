@@ -14,12 +14,12 @@ public interface UserMapper {
     @Select("select * from users where email = #{email}")
     User getUserByEmail(String email);
     @Insert("insert into users(username, password, email, phone) values(#{username}, #{password} ,#{email}, #{phone})")
-    boolean insertUser(User user);
+    boolean insert(User user);
     @Update("update users set username = #{username}," +
             "password = #{password}, email = #{email}, phone = #{phone}")
-    boolean updateUser(User user);
+    boolean update(User user);
     @Delete("delete from users where id = #{id}")
-    boolean deleteUserById(Long id);
+    boolean delete(Long id);
     @Select("select * from users")
     List<User> getAllUser();
 }

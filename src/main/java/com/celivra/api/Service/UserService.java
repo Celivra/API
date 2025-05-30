@@ -21,13 +21,13 @@ public class UserService {
         return  userMapper.getUserByEmail(email);
     }
     public boolean addUser(User user){
-        return userMapper.insertUser(user);
+        return userMapper.insert(user);
     }
     public boolean updateUser(User user){
-        return userMapper.updateUser(user);
+        return userMapper.update(user);
     }
     public boolean deleteUser(Long id){
-        return userMapper.deleteUserById(id);
+        return userMapper.delete(id);
     }
     public List<User> getAllUser(){
         return userMapper.getAllUser();
