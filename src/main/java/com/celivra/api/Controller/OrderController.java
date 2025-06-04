@@ -20,4 +20,8 @@ public class OrderController {
         }
         return order;
     }
+    @PostMapping("/create")
+    public boolean createOrder(@RequestBody Order order){
+        return orderService.insert(order);
+    }
 }

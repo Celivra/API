@@ -13,8 +13,8 @@ public interface OrderMapper {
 
     @Insert("insert into order(userid, produceid, quantity, status) " +
             "values(#{userId}, #{produceId}, #{quantity}, #{status})")
-    void insert(Order order);
+    boolean insert(Order order);
 
     @Delete("delete from order where id = #{id}")
-    void delete(Long id);
+    boolean delete(Long id);
 }

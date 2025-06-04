@@ -15,10 +15,10 @@ public class OrderService {
     public Order getOrder(Long id) {
         return orderMapper.getOrder(id);
     }
-    public void insert(Order order) {
-        orderMapper.insert(order);
+    public boolean insert(Order order) {
+        return orderMapper.insert(order);
     }
-    public void delete(Long id) {
-        orderMapper.delete(id);
+    public boolean delete(Long id) {
+        return orderMapper.delete(id);
     }
 }
